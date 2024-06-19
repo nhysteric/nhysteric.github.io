@@ -1,5 +1,5 @@
 ---
-Language:        Cpp
+Language: Cpp
 
 # 基于的编码规范, 可选:
 # - LLVM: https://llvm.org/docs/CodingStandards.html
@@ -30,8 +30,6 @@ AlignArrayOfStructures: None
 
 # 同AlignConsecutiveAssignments, 表示连续位定义语句出现时, 是否需要对齐:符号, 位变量定义用得少, 可以不开启
 
-
-
 # 续行符(\\)对齐:
 # - DontAlign: 不做操作
 # - Left: 尽可能向左对齐, 即最长一行代码为准
@@ -41,7 +39,7 @@ AlignEscapedNewlines: Right
 # 在二元/一元表达式中的操作数对齐, 可选值:
 # - DontAlign: 不做对齐, 在操作数换行后, 将使用ContinuationIndentWidth来对齐
 # - Align: 即换行时, 操作数(or 操作符加操作数)跟上一行的第一个操作数左对齐, 具体操作符要不要换行, 由BreakBeforeBinaryOperators配置决定
-AlignOperands:   Align
+AlignOperands: Align
 AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: true
@@ -82,27 +80,27 @@ BinPackParameters: false
 # 大括号换行
 BraceWrapping:
   # 在case后的大括号是否换行
-  AfterCaseLabel:  true
+  AfterCaseLabel: true
   # class后
-  AfterClass:      true
+  AfterClass: true
   # 控制语句(if/for/while/switch/...)后是否换行
   # - Never: 永远不, 即永远将语句体的大括号放置于控制语句同一行
   # - MultiLine: 多行控制语句才进行换行
   # - Always: 永远换行, 建议
   AfterControlStatement: Always
   # 下面比较容易理解, 不再作无意义的解释
-  AfterEnum:       true
-  AfterFunction:   true
-  AfterNamespace:  true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
   AfterObjCDeclaration: true
-  AfterStruct:     true
-  AfterUnion:      true
+  AfterStruct: true
+  AfterUnion: true
   AfterExternBlock: true
-  BeforeCatch:     false
-  BeforeElse:      true
+  BeforeCatch: false
+  BeforeElse: true
   BeforeLambdaBody: false
-  BeforeWhile:     false
-  IndentBraces:    false
+  BeforeWhile: false
+  IndentBraces: false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
@@ -124,9 +122,9 @@ BreakAfterJavaFieldAnnotations: false
 # 字面字符串是否换行, true
 BreakStringLiterals: true
 # 代码列字符上限
-ColumnLimit:     120
+ColumnLimit: 120
 # pragma注释
-CommentPragmas:  '^ IWYU pragma:'
+CommentPragmas: "^ IWYU pragma:"
 # 注释关键字对齐(const/volatile), 建议Leave
 # - Leave: - 不改变开发者定义
 # - Left: 位于类型前
@@ -145,7 +143,7 @@ Cpp11BracedListStyle: true
 DeriveLineEnding: true
 # 是否开启文件分析, 根据文件中的*/&使用情况更新clang-format设定, 在无法决定时, 使用PointerAlignment代替, 不建议开启
 DerivePointerAlignment: false
-DisableFormat:   false
+DisableFormat: false
 # 访问限定后是否添加空行, 建议Never
 EmptyLineAfterAccessModifier: Never
 # 访问限定前是否要求空行, 建议LogicalBlock
@@ -158,7 +156,7 @@ ExperimentalAutoDetectBinPacking: false
 # - CurrentLine: 所有参数放置于一行, 如果放不下, 就一个参数一行
 # - NextLine: 同CurrentLine有点像, 唯一不同就是如果放不行, 将剩余参数放置于下一行(即不自动一参一行)
 PackConstructorInitializers: Never
-BasedOnStyle:    ''
+BasedOnStyle: ""
 # 废弃配置
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 # 废弃配置
@@ -179,28 +177,28 @@ IfMacros:
 # - Preserve: 只对每个代码块排序
 # - Merge: 对所有代码块合并, 并在合并后排序
 # - Regroup: 对所有include块进行分析, 并重新分块, 不建议!
-IncludeBlocks:   Preserve
+IncludeBlocks: Preserve
 # Include Sort选项, 可选:
 # - Never: 永远不, 建议
 # - CaseSensitive: 大小写敏感排序
 # - CaseInsensitive: 大小写不敏感排序
-SortIncludes:    Never
+SortIncludes: Never
 # Include种类, 默认即可
 IncludeCategories:
-  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
-    Priority:        2
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
-    Priority:        3
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '.*'
-    Priority:        1
-    SortPriority:    0
-    CaseSensitive:   false
-IncludeIsMainRegex: '(Test)?$'
-IncludeIsMainSourceRegex: ''
+  - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
+    Priority: 2
+    SortPriority: 0
+    CaseSensitive: false
+  - Regex: '^(<|"(gtest|gmock|isl|json)/)'
+    Priority: 3
+    SortPriority: 0
+    CaseSensitive: false
+  - Regex: ".*"
+    Priority: 1
+    SortPriority: 0
+    CaseSensitive: false
+IncludeIsMainRegex: "(Test)?$"
+IncludeIsMainSourceRegex: ""
 # 缩进访问控制
 IndentAccessModifiers: false
 # 缩进case语句, 建议false
@@ -217,7 +215,7 @@ IndentPPDirectives: None
 # extern "C"缩进, 建议AfterExternBlock
 IndentExternBlock: AfterExternBlock
 # 缩进宽度
-IndentWidth:     4
+IndentWidth: 4
 # 函数名换行时, 是否缩进(即返回值跟名字不同行时), 建议false
 IndentWrappedFunctionNames: false
 # 是否强制插入拖尾的',', 建议为None
@@ -230,9 +228,9 @@ KeepEmptyLinesAtTheStartOfBlocks: false
 # 未找到定义
 LambdaBodyIndentation: Signature
 # 宏开始的正则, 不使用
-MacroBlockBegin: ''
+MacroBlockBegin: ""
 # 宏结束的正则, 不使用
-MacroBlockEnd:   ''
+MacroBlockEnd: ""
 # 空行保持, 建议为1
 MaxEmptyLinesToKeep: 1
 # Namespace内的对齐, 直接使用None即可, 即所有namespace内(包括内嵌的)都不indent
@@ -262,9 +260,9 @@ PointerAlignment: Right
 # - Right: Right
 ReferenceAlignment: Pointer
 # 预处理对齐宽度
-PPIndentWidth:   -1
+PPIndentWidth: -1
 # 是否允许clang-format尝试重新粘合注释(true/false), 不建议使用
-ReflowComments:  false
+ReflowComments: false
 # 是否移除多余的{}, 不建议
 RemoveBracesLLVM: false
 # 分隔不同定义块, 建议Always, 可选:
@@ -305,7 +303,7 @@ SpaceInEmptyParentheses: false
 # Trailing注释前的空格数, 建议1
 SpacesBeforeTrailingComments: 1
 # <>里面是否增加space, 不建议, 配置成Never即可
-SpacesInAngles:  Never
+SpacesInAngles: Never
 # 条件语句()里面是否增加space, 不建议, 配置成Never即可
 SpacesInConditionalStatement: false
 # 容器初始化列表[]/{}里面是否增加space, 不建议(跟C++11风格保持一致)
@@ -314,8 +312,8 @@ SpacesInContainerLiterals: false
 SpacesInCStyleCastParentheses: false
 # 行注释前的空格范围数量, 建议Maximum关闭, 设置成-1, 即//到你的注释内容前的空格数量至少是1, 至多是无穷
 SpacesInLineCommentPrefix:
-  Minimum:         1
-  Maximum:         -1
+  Minimum: 1
+  Maximum: -1
 # 贺括号内是否加space, false
 SpacesInParentheses: false
 # 中括号内是否加space, false
@@ -329,18 +327,18 @@ SpaceBeforeSquareBrackets: false
 # - None: 不增加, 建议, 没有必要因为过多的space(s)影响代码紧凑
 BitFieldColonSpacing: None
 # C++标准, Latest即可
-Standard:        Latest
+Standard: Latest
 StatementAttributeLikeMacros:
   - Q_EMIT
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
 # Tab宽度, 建议4
-TabWidth:        4
+TabWidth: 4
 # 不使用CRLF, 强制关闭, 如果DeriveLineEnding为true却未自动决策出来, 此项用于fallback策略
-UseCRLF:         false
+UseCRLF: false
 # Tab使用, 没有必要使用, 直接Never
-UseTab:          Never
+UseTab: Never
 # 空格敏感宏列表
 WhitespaceSensitiveMacros:
   - STRINGIZE
@@ -348,6 +346,5 @@ WhitespaceSensitiveMacros:
   - BOOST_PP_STRINGIZE
   - NS_SWIFT_NAME
   - CF_SWIFT_NAME
-...
-
+---
 
