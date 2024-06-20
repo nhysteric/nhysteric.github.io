@@ -43,7 +43,7 @@ clear
 
 if prompt_user "编译依赖安装"; then
     sudo apt update 
-    apt install build-essential libssl-dev zlib1g-dev \
+    sudo apt install build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev curl git \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 fi
@@ -66,7 +66,7 @@ fi
 
 if  ! is_exist cmake && prompt_user "Cmake & Ninja"; then
     pip install cmake
-    apt install ninja-build
+    sudo apt install ninja-build
 fi
 
 if ! is_exist clang && prompt_user "clang"; then
@@ -91,8 +91,8 @@ fi
 
 if  ! is_exist hx && prompt_user "Helix"; then
     sudo add-apt-repository ppa:maveonair/helix-editor
-    apt update
-    apt install helix
+    sudo apt update
+    sudo apt install helix
 fi
 
 if ! is_exist ruff && prompt_user "ruff"; then
