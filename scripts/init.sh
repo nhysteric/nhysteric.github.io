@@ -14,13 +14,6 @@ green() { printf  "\033[32m\033[01m$1$2\033[0m"; }
 yellow() { printf  "\033[33m\033[01m$1$2\033[0m"; }
 reading() { read -rp "$1" "$2"; }
 
-
-
-if [ "$(id -u)" -ne 0 ]; then
-    echo "need root:"
-    exec sudo sh "$0" "$@"
-fi
-
 prompt_user() {
     local message="$1"
     read -rp "$(green "${message}") $(red "[y/n]:")" confirm
