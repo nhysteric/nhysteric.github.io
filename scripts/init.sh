@@ -26,9 +26,9 @@ prompt_user() {
 
 is_exist(){
     if command -v $1 > /dev/null 2>&1; then
-        return 1
-    else
         return 0
+    else
+        return 1
     fi
 }
 
@@ -41,13 +41,13 @@ if prompt_user "编译依赖安装"; then
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 fi
 
-if  ! is_exist omz && prompt_user "oh my zsh"; then
+if  ! is_exist zsh && prompt_user "oh my zsh"; then
     sudo apt install zsh -y
     sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 fi
 
 if  ! is_exist pyenv && prompt_user "pyenv & uv"; then
-    curl https://pyenv.run | zsh
+    curl https://pyenv.run | bash
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
     echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
     echo 'eval "$(pyenv init -)"' >> ~/.zshrc
