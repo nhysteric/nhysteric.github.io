@@ -1,0 +1,19 @@
+[hostname]
+disabled = true
+
+[jobs]
+symbol = '✦'
+format = '[$symbol( $number)]($style) '
+
+[shell]
+fish_indicator = '󰈺'
+powershell_indicator = ''
+bash_indicator = ""
+zsh_indicator = "💤"
+cmd_indicator = ' '
+style = 'cyan bold'
+disabled = false
+
+[username]
+show_always = true
+format = '[$user]($style) in '

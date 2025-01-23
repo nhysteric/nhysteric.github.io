@@ -41,25 +41,23 @@ if prompt_user "编译依赖安装"; then
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 fi
 
-if  ! is_exist zsh && prompt_user "oh my zsh"; then
-    sudo apt install zsh -y
-    sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
+if  ! is_exist fish && prompt_user "fish"; then
+    sudo apt-add-repository ppa:fish-shell/release-3  
+    sudo apt update  
+    sudo apt install fish
+    chsh -s /usr/bin/fish
+    curl -sS https://starship.rs/install.sh | sh
+    echo starship init fish | source >> ~/.config/fish/config.fish
 fi
 
-if  ! is_exist pyenv && prompt_user "pyenv & uv"; then
-    curl https://pyenv.run | bash
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-    source ~/.zshrc
-    pyenv install 3.12
-    pyenv global 3.12
-    pip install uv
+if  ! is_exist uv && prompt_user "uv"; then
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    uv python install 3.12
 fi
 
-if  ! is_exist cmake && prompt_user "Cmake & Ninja"; then
-    pip install cmake
-    sudo apt install ninja-build
+if  ! is_exist cmake && prompt_user "cmake & ruff"; then
+    uv tool install cmake
+    uv tool install ruff
 fi
 
 if ! is_exist clang && prompt_user "clang"; then
@@ -77,19 +75,10 @@ if  ! is_exist zellij && prompt_user "zellij"; then
     cargo install --locked zellij
 fi
 
-if  ! is_exist starship && prompt_user "Starship"; then
-    curl -sS https://starship.rs/install.sh | sh
-    echo 'eval "$(starship init zsh)"' >> ~/.zshrc
-fi
-
 if  ! is_exist hx && prompt_user "Helix"; then
     sudo add-apt-repository ppa:maveonair/helix-editor
     sudo apt update
     sudo apt install helix
-fi
-
-if ! is_exist ruff && prompt_user "ruff"; then
-    pip install ruff
 fi
 
 
